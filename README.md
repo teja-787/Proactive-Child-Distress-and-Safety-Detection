@@ -62,6 +62,8 @@ All inference happens **on the device**, making the solution ethical, scalable, 
 - DHT11 / DHT22 (Temperature & Humidity)
 - MQ-135 (Air Quality)
 
+- https://wokwi.com/projects/451690816766357505   -- check our simulation here
+
 ### AI & Software
 - TinyML (TensorFlow Lite Micro)
 - Edge anomaly detection
