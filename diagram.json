@@ -1,0 +1,128 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard-half", "id": "bb1", "top": -60.6, "left": -112.4, "attrs": {} },
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 172.8, "left": 24.04, "attrs": {} },
+    { "type": "wokwi-gas-sensor", "id": "gas1", "top": -26.1, "left": -377, "attrs": {} },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht1",
+      "top": -57.3,
+      "left": 138.6,
+      "attrs": { "temperature": "19.2" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r3",
+      "top": 100.8,
+      "left": 133.85,
+      "rotate": 90,
+      "attrs": { "value": "10000" }
+    },
+    {
+      "type": "wokwi-pir-motion-sensor",
+      "id": "pir1",
+      "top": -101.6,
+      "left": -45.78,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": -16.8,
+      "left": 11.4,
+      "attrs": { "volume": "0.1" }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz2",
+      "top": -26.4,
+      "left": 97.8,
+      "attrs": { "volume": "0.1" }
+    },
+    { "type": "wokwi-relay-module", "id": "relay1", "top": -19, "left": 412.8, "attrs": {} },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 52.8,
+      "left": -96.55,
+      "rotate": 90,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -22.8,
+      "left": -92.2,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": -22.8,
+      "left": -63.4,
+      "attrs": { "color": "limegreen" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": 52.8,
+      "left": -67.75,
+      "rotate": 90,
+      "attrs": { "value": "1000" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "bb1:bn.2", "esp:GND.1", "black", [ "v0" ] ],
+    [ "bb1:bp.3", "esp:5V", "orange", [ "v0" ] ],
+    [ "gas1:GND", "bb1:bn.8", "black", [ "h0" ] ],
+    [ "dht1:GND", "bb1:bn.24", "black", [ "v0" ] ],
+    [ "bb1:27b.g", "esp:5", "green", [ "h9.6", "v220.8" ] ],
+    [ "bz2:1", "bb1:bn.17", "black", [ "v0" ] ],
+    [ "bb1:9t.e", "bb1:bp.7", "orange", [ "v0" ] ],
+    [ "bb1:10t.b", "bb1:8t.b", "gold", [ "v0" ] ],
+    [ "bb1:11t.e", "bb1:bn.9", "black", [ "v0" ] ],
+    [ "gas1:VCC", "bb1:bp.10", "orange", [ "h9.6", "v-201.6" ] ],
+    [ "bz1:2", "esp:4", "red", [ "v86.4", "h95.6", "v163.2" ] ],
+    [ "bz1:1", "bb1:bn.11", "black", [ "v0" ] ],
+    [ "bz2:2", "esp:17", "limegreen", [ "v105.6", "h38", "v124.8", "h-28.8" ] ],
+    [ "esp:3V3", "bb1:tp.1", "orange", [ "h-172.65", "v-230.4" ] ],
+    [ "dht1:VCC", "bb1:tp.19", "orange", [ "v105.6", "h96", "v-220.8" ] ],
+    [ "r3:2", "bb1:tp.18", "orange", [ "h0", "v37.2", "h96", "v-249.6", "h-144" ] ],
+    [ "relay1:VCC", "bb1:bp.25", "orange", [ "h0" ] ],
+    [ "esp:18", "relay1:IN", "violet", [ "h0" ] ],
+    [ "relay1:GND", "bb1:bn.20", "black", [ "h0" ] ],
+    [ "bb1:8t.e", "esp:13", "gold", [ "v0" ] ],
+    [ "gas1:AOUT", "esp:34", "red", [ "h76.8", "v-76.8" ] ],
+    [ "bb1:2t.e", "bb1:bn.1", "black", [ "v0" ] ],
+    [ "bb1:3b.j", "esp:32", "red", [ "v0" ] ],
+    [ "bb1:5t.e", "bb1:bn.4", "black", [ "v0" ] ],
+    [ "bb1:6b.j", "esp:33", "green", [ "v0" ] ],
+    [ "dht1:VCC", "bb1:26b.f", "", [ "$bb" ] ],
+    [ "dht1:SDA", "bb1:27b.f", "", [ "$bb" ] ],
+    [ "dht1:NC", "bb1:28b.f", "", [ "$bb" ] ],
+    [ "dht1:GND", "bb1:29b.f", "", [ "$bb" ] ],
+    [ "r3:1", "bb1:27b.h", "", [ "$bb" ] ],
+    [ "r3:2", "bb1:bn.22", "", [ "$bb" ] ],
+    [ "r1:1", "bb1:3t.e", "", [ "$bb" ] ],
+    [ "r1:2", "bb1:3b.i", "", [ "$bb" ] ],
+    [ "led1:A", "bb1:3t.d", "", [ "$bb" ] ],
+    [ "led1:C", "bb1:2t.d", "", [ "$bb" ] ],
+    [ "led2:A", "bb1:6t.d", "", [ "$bb" ] ],
+    [ "led2:C", "bb1:5t.d", "", [ "$bb" ] ],
+    [ "r2:1", "bb1:6t.e", "", [ "$bb" ] ],
+    [ "r2:2", "bb1:6b.i", "", [ "$bb" ] ],
+    [ "bz1:1", "bb1:14b.g", "", [ "$bb" ] ],
+    [ "bz1:2", "bb1:15b.g", "", [ "$bb" ] ],
+    [ "bz2:1", "bb1:23b.f", "", [ "$bb" ] ],
+    [ "bz2:2", "bb1:24b.f", "", [ "$bb" ] ],
+    [ "pir1:VCC", "bb1:9t.a", "", [ "$bb" ] ],
+    [ "pir1:OUT", "bb1:10t.a", "", [ "$bb" ] ],
+    [ "pir1:GND", "bb1:11t.a", "", [ "$bb" ] ]
+  ],
+  "dependencies": {}
+}
